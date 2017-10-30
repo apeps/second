@@ -1,0 +1,37 @@
+{
+  "name": "chat",
+  "description": "Chat project",
+  "version": "0.0.1",
+  "author": "A group of enthusiasts",
+  "private": true,
+  "scripts": {
+    "client-dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
+    "client-build": "cross-env NODE_ENV=production webpack --progress --hide-modules & cpx src/client/index.html dist/client",
+    "server-build": "babel src/server -d dist/server & babel src/global -d dist/global",
+    "full-build": "npm run server-build & npm run client-build",
+    "build-and-start": "npm run full-build & node dist/server",
+    "server-build-and-start": "npm run server-build & node dist/server"
+  },
+  "dependencies": {
+    "koa": "^2.3.0",
+    "koa-static": "^4.0.1",
+    "vue": "^2.4.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "cpx": "^1.5.0",
+    "cross-env": "^5.0.5",
+    "css-loader": "^0.28.7",
+    "file-loader": "^1.1.4",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6",
+    "vue-loader": "^13.0.5",
+    "vue-template-compiler": "^2.4.4",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.9.1"
+  }
+}
