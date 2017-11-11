@@ -41,7 +41,7 @@ export default class Client {
 
         this.radio.listen("message", (msg) => {
 
-            if (!msg || typeof(msg.text) === "string") {
+            if (!msg || typeof(msg.text) !== "string") {
                 console.log("Error! The message is not valid.");
                 return;
             }
@@ -58,7 +58,7 @@ export default class Client {
 
         this.radio.listen("config", (conf) => {
 
-            if (!conf || typeof(conf.name) === "string") {
+            if (!conf || typeof(conf.name) !== "string") {
                 console.log("Error! The configuration is not valid.");
                 return;
             }
