@@ -47,11 +47,11 @@ Chat API:
 + Client
    + `radio.tell("message", { text: "string" })` - Send message to server.
    + `radio.tell("config", { name: "My nickname" })` - Set my nickname in chat.
-   + `radio.listen("message", (msg) => { /* msg.text, msg.name */ })` - Receive messages from server.
+   + `radio.listen("message", (msg) => { /* msg.text, msg.name, msg.id */ })` - Receive messages from server.
 + Server
-   + `radio.listen("message", (msg) => { /* msg.text */ })` - Receive message from client. 
+   + `radio.listen("message", (msg) => { /* msg.text, msg.id */ })` - Receive message from client.
    + `radio.listen("config", (conf) => { /* conf.name */ })` - Apply config from the client.
-   + `radio.tell("message", { name: "Client Name", text: "Message text" })` - Send message to a client.
+   + `radio.tell("message", { name: "Client Name", text: "Message text" })` - Send message to clients.
 
 Workflow
 --------
