@@ -1,11 +1,14 @@
 import serve from "koa-static";
 import Koa from "koa";
+import { server } from "./http.js";
 import { port } from "../global/const.js";
 
 const app = new Koa();
 
 app.use(serve(__dirname + "/../client"));
 
-app.listen(port);
+server.on(`request`, app.callback());
 
-console.log(`Server listening on port ${ port }.`);
+server.listen(port);
+
+console.log(`Static server listening on port ${ port }.`);
